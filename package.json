@@ -1,0 +1,25 @@
+{
+  "name": "socialmediabackend",
+  "version": "1.0.0",
+  "description": "A backend system for a social media site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ultimated1228/socialMediaBackend.git"
+  },
+  "keywords": [],
+  "author": "stevenlucasmeyer@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ultimated1228/socialMediaBackend/issues"
+  },
+  "homepage": "https://github.com/ultimated1228/socialMediaBackend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
+  }
+}

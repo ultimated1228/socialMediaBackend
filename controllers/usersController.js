@@ -1,4 +1,4 @@
-const { User } = require('../models/User');
+const { User } = require('../models');
 
 module.exports = {
     async getUsers(req, res) {
@@ -29,6 +29,7 @@ module.exports = {
             const dbUserData = await User.create(req.body);
             res.json(dbUserData);
         } catch (err) {
+            console.log(err);
             res.status(500).json(err);
         }
     },

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'); 
 const { Schema, model, Types } = require('mongoose');
-// import { schema } from '../../../program-files/18-NoSQL/01-Activities/17-Ins_Subdocuments/models/Department';
+
 
 const reactionSchema = new mongoose.Schema({
     reactionId: { type: Schema.Types.ObjectId, default: () => new Types.ObjectId() },

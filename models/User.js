@@ -1,11 +1,11 @@
 const { Schema, model } = require('mongoose');
-import { isEmail } from 'validator';
+const validator = require('validator');
 
 const userSchema = new Schema(
     {
         username: { type: String, unique: true, required: 'Username is required', trim: true },
         //note the square brackets might not work, and may need to be changed on errors in testing
-        email: { type: String, required: 'Email address is required', unique: true, validate: [isEmail, 'invalid email'] },
+        email: { type: String, required: 'Email address is required', unique: true, validate: [validator.isEmail, 'invalid email'] },
         thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],
         friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     },

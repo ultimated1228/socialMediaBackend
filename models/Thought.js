@@ -1,6 +1,6 @@
+const mongoose = require('mongoose'); 
 const { Schema, model, Types } = require('mongoose');
-import { isLength } from 'validator';
-import { schema } from '../../../program-files/18-NoSQL/01-Activities/17-Ins_Subdocuments/models/Department';
+// import { schema } from '../../../program-files/18-NoSQL/01-Activities/17-Ins_Subdocuments/models/Department';
 
 const reactionSchema = new mongoose.Schema({
     reactionId: { type: Schema.Types.ObjectId, default: () => new Types.ObjectId() },
@@ -17,7 +17,7 @@ const reactionSchema = new mongoose.Schema({
 
 const thoughtSchema = new Schema(
     {
-        thoughtText: { type: String, required: 'Username is required', validate: [isLength, { min: 1, max: 128 }] },
+        thoughtText: { type: String, required: 'Username is required', minlength: 1, maxlength: 128 },
         createdAt: {
             type: Date,
             default: Date.now,

@@ -16,7 +16,7 @@ module.exports = {
                 .select('-__v');
 
             if (!thought) {
-                return res.status(404).json({ message: 'No user with that ID' });
+                return res.status(404).json({ message: 'No thought with that ID' });
             }
 
             res.json(thought);
@@ -24,7 +24,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // create a new user
+    // create a new thought
     async createThought(req, res) {
         try {
             const dbThoughtData = await Thought.create(req.body);
@@ -33,7 +33,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    //written, not tested
+    //update a thought
     async updateThought(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
@@ -52,7 +52,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    //  written, not tested
+    //  remove a thought
     async removeThought(req, res) {
         try {
             const thought = await Thought.findByIdAndDelete({ _id: req.params.thoughtId })
@@ -67,7 +67,7 @@ module.exports = {
         }
     },
 
-    //written not tested
+    // create a reaction
     async addReaction(req, res) {
         try {
             const reaction = await thought.findOneAndUpdate(
@@ -86,12 +86,12 @@ module.exports = {
         }
     },
 
-    //written not tested
+    // remove reaction
     async removeReaction(req, res) {
         try {
             const reaction = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
-                { $pull: { reactions: { reactionId: req.params.reactionId } } },
+                { $pull: { reactions: req.params.reactionId } },
                 { runValidators: true, new: true }
                 )
 
